@@ -21,7 +21,7 @@ Then /^show me a screenshot$/ do
 end
 
 When /^I confirm popup$/ do
-  page.driver.render('./confirm.png')
+  # selenium driver does not have .render method    page.driver.render('./confirm.png')
 
   # requires poltergeist:
   using_wait_time 3 do
@@ -31,7 +31,7 @@ end
 
 
 When /^I confirm popup with message "([^"]*)"$/ do | modal_text |   # requires poltergeist
-  page.driver.render('./confirm.png')
+  # selenium driver does not have .render method  page.driver.render('./confirm.png')
   using_wait_time 3 do
     page.driver.accept_modal(:confirm, {text: "#{modal_text}"}) # will wait until it finds the text (or reaches Capybara max wait time)
   end
@@ -39,7 +39,7 @@ end
 
 
 When /^I dismiss popup with message "([^"]*)"$/ do | modal_text |
-  page.driver.render('./dismiss.png')
+# selenium driver does not have .render method    page.driver.render('./dismiss.png')
   using_wait_time 5 do
     page.driver.dismiss_modal(:confirm, {text: "#{modal_text}"})
   end

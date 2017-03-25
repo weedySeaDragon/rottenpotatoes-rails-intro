@@ -251,5 +251,5 @@ end
 
 Then /^show me the page$/ do
   #save_and_open_page
-  page.driver.render('./screen.png')
+  # selenium driver does not have .render method  page.driver.render('./screen.png')
 end
