@@ -22,7 +22,7 @@ Background: movies have been added to database
 
   And  I go to the details page for "Superfluous Away Team Member"
  
- @javascript
+@javascript
 Scenario: delete movie and confirm
   Then show me the page
   When I press "Delete" 

@@ -56,10 +56,12 @@ end
 group :test do # these were either added or moved (moves are commented)
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'launchy'
   gem 'cucumber-rails', :require => false #added :require . . .
   gem 'cucumber-rails-training-wheels'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
 end
   
 group :production do

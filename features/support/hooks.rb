@@ -1,7 +1,7 @@
 
 Before('@javascript') do
-  Capybara.current_driver = :poltergeist
-  Capybara.javascript_driver = :poltergeist
+  Capybara.current_driver = :selenium
+  Capybara.javascript_driver = :selenium
 end
 
 After('@javascript') do

@@ -6,7 +6,10 @@
 require 'cucumber/rails'
 require 'rspec/expectations'
 require 'capybara/cucumber'
-require 'capybara/poltergeist'
+require 'capybara-screenshot'
+require 'selenium-webdriver'
+require 'rspec'
+#require 'capybara/poltergeist'
 require 'capybara/dsl'
 include Capybara::DSL
 
@@ -41,20 +44,16 @@ else
 end
 =end
 
-Capybara.register_driver :poltergeist do |app|
-  options = {
-    :js_errors => true,
-    :timeout => 120,
-    :debug => false,
-    :phantomjs_options => ['--load-images=no', '--disk-cache=false'],
-    :inspector => true,
-  }
-  Capybara::Poltergeist::Driver.new(app, options)
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
-Capybara.default_driver = :poltergeist
-Capybara.javascript_driver = :poltergeist
+Capybara.default_driver = :seleniumr
+Capybara.javascript_driver = :selenium
+Capybara::Screenshot.autosave_on_failure = true
+Capybara::Screenshot.prune_strategy = :keep_last_run 
 
+Capybara.default_wait_time = 60
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.

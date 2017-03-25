@@ -15,6 +15,10 @@ Then /^show me the "([^"]*)" page$/ do |type|
 end
 =end
 
+Then /^show me a screenshot$/ do
+  # Saves a screenshot in /tmp/capybara and opens it in your browser
+  Capybara::Screenshot.screenshot_and_open_image
+end
 
 When /^I confirm popup$/ do
   page.driver.render('./confirm.png')
